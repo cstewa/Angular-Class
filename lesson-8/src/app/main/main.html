@@ -1,0 +1,68 @@
+<div class="container">
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+
+  <div ng-repeat="user in ctrl.users">
+    <div>
+      Name: {{user.name}}
+    </div>
+    <div>
+      Gender: {{user.gender}}
+    </div>
+    <div ng-repeat="friend in user.friends">
+      {{friend.name}}
+    </div>
+
+    <button ng-click="ctrl.getFriends(user)">Get Friends</button>
+  </div>
+
+  <button ng-click="ctrl.getUsers()">Get Users</button>
+
+
+  <div>
+    is form valid = {{ctrl.myForm.$valid}}
+  </div>
+
+  <form name='ctrl.myForm' novalidate ng-submit="ctrl.onSubmit()">
+
+    <div>
+      <input type="text" name="nameInput" ng-model="ctrl.firstName" required placeholder="First Name">
+      <div ng-show="ctrl.myForm.nameInput.$error.required"> First Name required </div>
+    </div>
+
+    <div>
+      <input type="text" name="lastNameInput" ng-model="ctrl.lastName" placeholder="Last Name">
+    </div>
+
+    <div>
+      <input type="email" name="emailInput" ng-model="ctrl.email" placeholder="Email">
+      <div ng-show="ctrl.myForm.emailInput.$error.email"> Email must be valid: cstewart@gmail.com </div>
+    </div>
+
+    <div>
+      Phone Format (###) ###-####
+      <input type="text" name="phoneInput" ng-model="ctrl.phone" placeholder="Phone Number"
+      ng-pattern="/^\(\d\d\d\) \d\d\d-\d\d\d\d$/">
+      <div ng-show="ctrl.myForm.phoneInput.$error.pattern"> Phone must be valid: (301) 801-2521 </div>
+    </div>
+
+    <select required ng-model="ctrl.state" ng-options="option.abvr as option.name for option in ctrl.selectOptions">
+      <option value="">Select one</option>
+    </select>
+
+
+    <input ng-disabled="ctrl.myForm.$invalid" type="submit" name="submitInput" value="Submit">
+  </form>
+
+  <div>
+    <input type="text" ng-change="ctrl.getResults(ctrl.addressQuery)" ng-model="ctrl.addressQuery" placeholder="Address">
+  </div>
+
+  <div ng-repeat="address in ctrl.addresses">
+    {{address.formatted_address}}
+  </div>
+
+  <iframe id="indieshuffle" width="100%" src="http://poponandon.com/first-listen-zedd-ft-selena-gomez-i-want-you-to-know/ #mep_0"> </iframe>
+</div>
+
+<!-- controller values just for example?? -->

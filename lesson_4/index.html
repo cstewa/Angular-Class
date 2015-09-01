@@ -1,0 +1,76 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Custom Services</title>
+  <script src="angular.js"></script>
+  <script src="app.js"></script>
+
+  <style type="text/css">
+    .selection {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .green {
+      background-color: green;
+    }
+    .font-red {
+      color: red;
+    }
+    .font-blue {
+      color: blue;
+    }
+
+    .font-yellow {
+      color: yellow;
+    }
+
+    .font-green {
+      color: green;
+    }
+  </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MyUIThemeCtrl as ctrl" ng-class="ctrl.currentSelection.bodyColor">
+
+  <div>
+    <div class="selection">
+      <input type="radio" name="selection" ng-value="ctrl.COLOR_THEME_VALUES.RED" ng-model="ctrl.currentSelection">
+      {{ctrl.COLOR_THEME_VALUES.RED.displayValue}}
+    </div>
+
+    <div class="selection">
+      <input type="radio" name="selection" ng-value="ctrl.COLOR_THEME_VALUES.BLUE" ng-model="ctrl.currentSelection">
+      {{ctrl.COLOR_THEME_VALUES.BLUE.displayValue}}
+    </div>
+
+    <div class="selection">
+      <input type="radio" name="selection" ng-value="ctrl.COLOR_THEME_VALUES.YELLOW" ng-model="ctrl.currentSelection">
+      {{ctrl.COLOR_THEME_VALUES.YELLOW.displayValue}}
+    </div>
+
+    <div class="selection">
+      <input type="radio" name="selection" ng-value="ctrl.COLOR_THEME_VALUES.GREEN" ng-model="ctrl.currentSelection">
+      {{ctrl.COLOR_THEME_VALUES.GREEN.displayValue}}
+    </div>
+
+    <input type="number" ng-model="ctrl.currentNumber">
+    <button ng-click="ctrl.addNumber()"> Add </button>
+
+    <div>
+      Current Sum: {{ctrl.sum}}
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Custom Directives</title>
+  <script src="angular.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+  <div ng-controller="MyCtrl as ctrl">
+
+    <div my-user-edit-directive current-user="ctrl.userOne" my-scope-function="ctrl.testFunction()">
+      This is some stuff
+    </div>
+  </div>
+
+</body>
+</html>

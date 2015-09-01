@@ -1,0 +1,43 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+.right {
+  float: right;
+}
+
+.item.ng-enter {
+  opacity: 0.0;
+}
+
+.item.ng-enter-leave {
+  opacity: 1.0;
+}
+
+.item {
+  transition: 2s all;
+}
+
+.item.ng-leave {
+  transform: translateX(0);
+  opacity: 1.0;
+}
+
+.item.ng-leave-active {
+  transform: perspective(300px) rotatex(90deg);
+  opacity: 0.0;
+}
+
+// injector
+// endinjector

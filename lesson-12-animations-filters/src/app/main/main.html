@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div ng-include="'components/navbar/navbar.html'"></div>
+
+  <input type="radio" value="png" name="imageType" ng-model="imageExtention"> PNG
+  <input type="radio" value="jpg" name="imageType" ng-model="imageExtention"> JPG
+  <input type="radio" value="" name="imageType" ng-model="imageExtention">
+
+
+  <div class="jumbotron text-center">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">
+      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
+      Always a pleasure scaffolding your apps.
+    </p>
+    <p><a class="btn btn-lg btn-success" ng-click="restoreArray()" ng-href="#">Restore</a></p>
+  </div>
+
+  <input type="text" class="form-control" ng-model="filterObject.title" style="width:330px">
+
+  Donuts
+  <input type="text" class="form-control" ng-model="topping" style="width:330px">
+
+  <!-- filter:filterObject -->
+  <div ng-repeat="recipe in SampleJSON | FilterTopping:topping">
+    <p>{{recipe.name}} </p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4 item" ng-repeat="awesomeThing in awesomeThings | FilterImageType:imageExtention track by awesomeThing.title">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
+        <div class="caption">
+          <h3>{{awesomeThing.title}}</h3>
+          <p>{{awesomeThing.description}}</p>
+          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+          <p><a ng-click="removeElement($index)"> Remove </a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+</div>

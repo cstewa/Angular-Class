@@ -1,0 +1,13 @@
+<div style="height: 400px">
+  <label> Enter your email </label>
+  <form name="ctrl.form" novalidate ng-submit="ctrl.submit()">
+    <input type="email" ng-model="ctrl.email" required class="form-control">
+    <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="ctrl.form.$invalid">
+  </form>
+
+  <div>
+    <input type="text" ng-change="ctrl.getResults(ctrl.addressQuery)" ng-model="ctrl.addressQuery" placeholder="Address">
+  </div>
+
+  <div ng-grid="ctrl.gridOptions" style="width:300px; height: 250px"> </div>
+</div>
